@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Heart, Leaf, Palette, Users, Mail, Phone, MapPin, BookOpen, Star, Sun } from "lucide-react"
+import { Heart, Leaf, Palette, Mail, Phone, MapPin, CalendarIcon, Clock, Users, Star } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -40,17 +40,8 @@ export default function WaldorfSchoolSite() {
               <Link href="#about" className="text-blue-700 hover:text-blue-600 transition-colors font-medium">
                 About
               </Link>
-              <Link href="#admissions" className="text-blue-700 hover:text-blue-600 transition-colors font-medium">
-                Admissions
-              </Link>
-              <Link href="#curriculum" className="text-blue-700 hover:text-blue-600 transition-colors font-medium">
-                Curriculum
-              </Link>
-              <Link href="#community" className="text-blue-700 hover:text-blue-600 transition-colors font-medium">
-                Community
-              </Link>
-              <Link href="#news" className="text-blue-700 hover:text-blue-600 transition-colors font-medium">
-                News
+              <Link href="#calendar" className="text-blue-700 hover:text-blue-600 transition-colors font-medium">
+                Calendar
               </Link>
               <Link href="#contact" className="text-blue-700 hover:text-blue-600 transition-colors font-medium">
                 Contact
@@ -62,47 +53,51 @@ export default function WaldorfSchoolSite() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative py-20 overflow-hidden">
+      <section className="relative py-32 overflow-hidden min-h-[80vh] flex items-center">
+        {/* Full Width Background Image */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-400/25 via-sky-300/20 to-blue-500/30"></div>
-          <div className="absolute top-0 left-0 w-3/4 h-full bg-gradient-to-br from-blue-400/25 via-transparent to-sky-300/20 blur-2xl"></div>
-          <div className="absolute bottom-0 right-0 w-1/2 h-3/4 bg-gradient-radial from-blue-400/30 to-transparent blur-xl"></div>
+          <Image
+            src="/images/waldorf-classroom.jpeg"
+            alt="Waldorf classroom with children learning in a natural, open-air environment with artistic chalkboard"
+            fill
+            className="object-cover"
+            priority
+          />
+          {/* Dark overlay for text readability */}
+          <div className="absolute inset-0 bg-black/40"></div>
+          {/* Watercolor overlay effects */}
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/30 via-sky-500/20 to-blue-700/40"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-800/10 to-blue-900/30"></div>
         </div>
-        <div className="container mx-auto px-4 relative">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-4xl">
             <div className="space-y-8">
-              <div className="space-y-4">
-                <h2 className="text-5xl lg:text-6xl font-bold text-blue-800 leading-tight">
+              <div className="space-y-6">
+                <h2 className="text-5xl lg:text-7xl font-bold text-white leading-tight drop-shadow-2xl">
                   Education that
-                  <span className="text-blue-600 block">Nurtures the Soul</span>
+                  <span className="text-sky-200 block">Nurtures the Soul</span>
                 </h2>
-                <p className="text-xl text-blue-700 leading-relaxed">
+                <p className="text-xl lg:text-2xl text-blue-100 leading-relaxed max-w-3xl drop-shadow-lg">
                   At our Waldorf school in Costa Rica, we cultivate imagination, creativity, and love for learning in a
                   natural and nurturing environment.
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-full">
+                <Button
+                  size="lg"
+                  className="bg-white/90 hover:bg-white text-blue-800 px-8 py-4 rounded-full text-lg font-semibold shadow-xl hover:shadow-2xl transition-all"
+                >
                   Learn More
                 </Button>
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 rounded-full bg-transparent"
+                  className="border-2 border-white/80 text-white hover:bg-white/10 px-8 py-4 rounded-full bg-transparent backdrop-blur-sm text-lg font-semibold shadow-xl hover:shadow-2xl transition-all"
                 >
                   Schedule a Visit
                 </Button>
               </div>
-            </div>
-            <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-r from-blue-400 to-sky-400 rounded-3xl opacity-20 blur-lg"></div>
-              <Image
-                src="/placeholder.svg?height=500&width=600&text=Children+playing+in+nature"
-                alt="Children playing in nature"
-                width={600}
-                height={500}
-                className="relative rounded-3xl shadow-2xl"
-              />
             </div>
           </div>
         </div>
@@ -169,8 +164,8 @@ export default function WaldorfSchoolSite() {
         </div>
       </section>
 
-      {/* Curriculum Section */}
-      <section id="curriculum" className="py-20 relative">
+      {/* Calendar Section */}
+      <section id="calendar" className="py-20 relative">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-b from-sky-50/70 to-blue-50/50"></div>
           <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-br from-blue-300/25 via-sky-200/20 to-transparent blur-3xl"></div>
@@ -179,353 +174,214 @@ export default function WaldorfSchoolSite() {
         </div>
         <div className="container mx-auto px-4 relative">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-blue-800 mb-4">Our Curriculum</h2>
+            <h2 className="text-4xl font-bold text-blue-800 mb-4">School Calendar</h2>
             <p className="text-xl text-blue-600 max-w-3xl mx-auto">
-              A rich and diverse curriculum that adapts to the child's developmental stages, from kindergarten through
-              high school.
+              Stay connected with our school community through seasonal festivals, educational events, and important
+              dates throughout the year.
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-            <div>
-              <Image
-                src="/placeholder.svg?height=400&width=500&text=Waldorf+classroom+with+children+learning"
-                alt="Waldorf classroom with children learning"
-                width={500}
-                height={400}
-                className="rounded-2xl shadow-lg"
-              />
-            </div>
-            <div className="space-y-6">
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-sky-500 rounded-full flex items-center justify-center flex-shrink-0">
-                  <Sun className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-blue-800 mb-2">Early Childhood (Ages 3-6)</h3>
-                  <p className="text-blue-700">
-                    Free play, storytelling, circle time, domestic activities, and artistic pursuits that nurture
-                    imagination.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
-                  <BookOpen className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-blue-800 mb-2">Elementary (Ages 6-14)</h3>
-                  <p className="text-blue-700">
-                    Main lesson blocks, academic subjects integrated with art, music, eurythmy, and handwork.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
-                  <Star className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-blue-800 mb-2">High School (Ages 14-18)</h3>
-                  <p className="text-blue-700">
-                    College preparation with emphasis on critical thinking, independent projects, and community service.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Admissions Section */}
-      <section id="admissions" className="py-20 relative">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-white/85"></div>
-          <div className="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-br from-blue-200/30 via-sky-100/25 to-transparent blur-3xl"></div>
-          <div className="absolute bottom-0 right-0 w-2/3 h-2/3 bg-gradient-radial from-blue-300/25 via-sky-200/20 to-transparent blur-2xl"></div>
-          <div className="absolute top-1/2 right-1/3 w-1/4 h-1/4 bg-gradient-radial from-sky-200/35 to-transparent blur-xl"></div>
-        </div>
-        <div className="container mx-auto px-4 relative">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-blue-800 mb-4">Admissions Process</h2>
-            <p className="text-xl text-blue-600 max-w-3xl mx-auto">
-              We invite you to get to know our educational community and discover if Waldorf pedagogy is right for your
-              family.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8">
-              <div className="space-y-6">
-                <div className="flex items-center space-x-4">
-                  <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">
-                    1
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-blue-800">Information Session</h3>
-                    <p className="text-blue-700">Attend one of our monthly information talks</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center space-x-4">
-                  <div className="w-8 h-8 bg-sky-500 rounded-full flex items-center justify-center text-white font-bold">
-                    2
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-blue-800">Campus Visit</h3>
-                    <p className="text-blue-700">Schedule a personalized visit to see our facilities</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center space-x-4">
-                  <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold">
-                    3
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-blue-800">Application</h3>
-                    <p className="text-blue-700">
-                      Complete the admission application and submit required documentation
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-center space-x-4">
-                  <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">
-                    4
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-blue-800">Family Interview</h3>
-                    <p className="text-blue-700">Conversation with the family to understand expectations and values</p>
-                  </div>
-                </div>
-              </div>
-
-              <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full">
-                Start Admissions Process
-              </Button>
-            </div>
-
-            <div>
-              <Image
-                src="/placeholder.svg?height=500&width=500&text=Waldorf+school+campus"
-                alt="Waldorf school campus"
-                width={500}
-                height={500}
-                className="rounded-2xl shadow-lg"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Community Section */}
-      <section id="community" className="py-20 relative">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-blue-50/60 to-sky-50/70"></div>
-          <div className="absolute top-0 right-0 w-2/3 h-2/3 bg-gradient-to-bl from-blue-300/30 via-sky-200/25 to-transparent blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-radial from-sky-300/35 via-blue-200/20 to-transparent blur-2xl"></div>
-          <div className="absolute top-1/4 left-1/2 w-1/3 h-1/3 bg-gradient-radial from-blue-200/30 to-transparent blur-xl"></div>
-        </div>
-        <div className="container mx-auto px-4 relative">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-blue-800 mb-4">Our Community</h2>
-            <p className="text-xl text-blue-600 max-w-3xl mx-auto">
-              We are a vibrant community of families, teachers, and students united by love for learning and holistic
-              growth.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            <Card className="border-none shadow-lg bg-white/90 backdrop-blur-sm rounded-2xl text-center relative overflow-hidden">
+          {/* Current Month Highlight */}
+          <div className="mb-12">
+            <Card className="border-none shadow-lg bg-white/90 backdrop-blur-sm rounded-2xl relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-100/40 to-sky-100/30"></div>
-              <CardContent className="p-6 relative">
-                <Users className="w-12 h-12 text-blue-500 mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-blue-800 mb-2">150+</h3>
-                <p className="text-blue-700">Students</p>
-              </CardContent>
-            </Card>
+              <CardContent className="p-8 relative">
+                <div className="flex items-center justify-between mb-6">
+                  <h3 className="text-2xl font-bold text-blue-800">March 2024</h3>
+                  <div className="flex items-center space-x-2 text-blue-600">
+                    <CalendarIcon className="w-5 h-5" />
+                    <span className="font-medium">Current Month</span>
+                  </div>
+                </div>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <div className="bg-blue-50/80 rounded-xl p-4">
+                    <div className="flex items-start space-x-3">
+                      <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                        15
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-blue-800">Spring Festival</h4>
+                        <p className="text-sm text-blue-600 mb-2">9:00 AM - 3:00 PM</p>
+                        <p className="text-blue-700 text-sm">
+                          Celebrate the renewal of spring with traditional songs, dances, and seasonal crafts.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
 
-            <Card className="border-none shadow-lg bg-white/90 backdrop-blur-sm rounded-2xl text-center relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-sky-100/40 to-blue-100/30"></div>
-              <CardContent className="p-6 relative">
-                <Heart className="w-12 h-12 text-sky-500 mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-blue-800 mb-2">25+</h3>
-                <p className="text-blue-700">Teachers</p>
-              </CardContent>
-            </Card>
+                  <div className="bg-sky-50/80 rounded-xl p-4">
+                    <div className="flex items-start space-x-3">
+                      <div className="w-10 h-10 bg-sky-500 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                        22
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-blue-800">Parent Workshop</h4>
+                        <p className="text-sm text-blue-600 mb-2">7:00 PM - 9:00 PM</p>
+                        <p className="text-blue-700 text-sm">Understanding Child Development in the Waldorf Approach</p>
+                      </div>
+                    </div>
+                  </div>
 
-            <Card className="border-none shadow-lg bg-white/90 backdrop-blur-sm rounded-2xl text-center relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-100/40 to-sky-100/30"></div>
-              <CardContent className="p-6 relative">
-                <Leaf className="w-12 h-12 text-blue-600 mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-blue-800 mb-2">15</h3>
-                <p className="text-blue-700">Years of History</p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-none shadow-lg bg-white/90 backdrop-blur-sm rounded-2xl text-center relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-sky-100/40 to-blue-100/30"></div>
-              <CardContent className="p-6 relative">
-                <Star className="w-12 h-12 text-sky-500 mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-blue-800 mb-2">100%</h3>
-                <p className="text-blue-700">Satisfaction</p>
+                  <div className="bg-blue-50/80 rounded-xl p-4">
+                    <div className="flex items-start space-x-3">
+                      <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                        29
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-blue-800">Art Exhibition</h4>
+                        <p className="text-sm text-blue-600 mb-2">4:00 PM - 7:00 PM</p>
+                        <p className="text-blue-700 text-sm">
+                          Student artwork display featuring watercolor paintings and handcrafts.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </CardContent>
             </Card>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8">
-            <Card className="border-none shadow-lg bg-white/90 backdrop-blur-sm rounded-2xl relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-sky-100/30 to-blue-100/25"></div>
-              <CardContent className="p-8 relative">
-                <Image
-                  src="/placeholder.svg?height=200&width=300&text=School+festival"
-                  alt="School festival"
-                  width={300}
-                  height={200}
-                  className="rounded-xl mb-6"
-                />
-                <h3 className="text-xl font-bold text-blue-800 mb-4">Seasonal Festivals</h3>
-                <p className="text-blue-700">
-                  We celebrate the natural rhythms of the year with festivals that connect the entire community.
-                </p>
-              </CardContent>
-            </Card>
+          {/* Upcoming Events */}
+          <div className="grid lg:grid-cols-2 gap-8 mb-12">
+            <div>
+              <h3 className="text-2xl font-bold text-blue-800 mb-6">Upcoming Events</h3>
+              <div className="space-y-4">
+                <Card className="border-none shadow-md bg-white/90 backdrop-blur-sm rounded-xl relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-r from-sky-100/30 to-blue-100/25"></div>
+                  <CardContent className="p-6 relative">
+                    <div className="flex items-center space-x-4">
+                      <div className="text-center">
+                        <div className="text-2xl font-bold text-blue-800">05</div>
+                        <div className="text-sm text-blue-600">APR</div>
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="font-bold text-blue-800">Earth Day Celebration</h4>
+                        <div className="flex items-center space-x-4 text-sm text-blue-600 mt-1">
+                          <div className="flex items-center space-x-1">
+                            <Clock className="w-4 h-4" />
+                            <span>10:00 AM</span>
+                          </div>
+                          <div className="flex items-center space-x-1">
+                            <Users className="w-4 h-4" />
+                            <span>All Ages</span>
+                          </div>
+                        </div>
+                        <p className="text-blue-700 text-sm mt-2">
+                          Garden planting and environmental awareness activities
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
 
-            <Card className="border-none shadow-lg bg-white/90 backdrop-blur-sm rounded-2xl relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-100/30 to-sky-100/25"></div>
-              <CardContent className="p-8 relative">
-                <Image
-                  src="/placeholder.svg?height=200&width=300&text=Parent+volunteers"
-                  alt="Parent volunteers"
-                  width={300}
-                  height={200}
-                  className="rounded-xl mb-6"
-                />
-                <h3 className="text-xl font-bold text-blue-800 mb-4">Family Participation</h3>
-                <p className="text-blue-700">
-                  Parents are active participants in education, joining activities and school decisions.
-                </p>
-              </CardContent>
-            </Card>
+                <Card className="border-none shadow-md bg-white/90 backdrop-blur-sm rounded-xl relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-100/30 to-sky-100/25"></div>
+                  <CardContent className="p-6 relative">
+                    <div className="flex items-center space-x-4">
+                      <div className="text-center">
+                        <div className="text-2xl font-bold text-blue-800">12</div>
+                        <div className="text-sm text-blue-600">APR</div>
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="font-bold text-blue-800">Music Concert</h4>
+                        <div className="flex items-center space-x-4 text-sm text-blue-600 mt-1">
+                          <div className="flex items-center space-x-1">
+                            <Clock className="w-4 h-4" />
+                            <span>6:00 PM</span>
+                          </div>
+                          <div className="flex items-center space-x-1">
+                            <Users className="w-4 h-4" />
+                            <span>Community</span>
+                          </div>
+                        </div>
+                        <p className="text-blue-700 text-sm mt-2">Student choir and instrumental performances</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
 
-            <Card className="border-none shadow-lg bg-white/90 backdrop-blur-sm rounded-2xl relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-sky-100/30 to-blue-100/25"></div>
-              <CardContent className="p-8 relative">
-                <Image
-                  src="/placeholder.svg?height=200&width=300&text=Teacher+training"
-                  alt="Teacher training"
-                  width={300}
-                  height={200}
-                  className="rounded-xl mb-6"
-                />
-                <h3 className="text-xl font-bold text-blue-800 mb-4">Continuous Training</h3>
-                <p className="text-blue-700">
-                  Our teachers continuously train in Waldorf pedagogy and innovative methodologies.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
+                <Card className="border-none shadow-md bg-white/90 backdrop-blur-sm rounded-xl relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-r from-sky-100/30 to-blue-100/25"></div>
+                  <CardContent className="p-6 relative">
+                    <div className="flex items-center space-x-4">
+                      <div className="text-center">
+                        <div className="text-2xl font-bold text-blue-800">26</div>
+                        <div className="text-sm text-blue-600">APR</div>
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="font-bold text-blue-800">Open House</h4>
+                        <div className="flex items-center space-x-4 text-sm text-blue-600 mt-1">
+                          <div className="flex items-center space-x-1">
+                            <Clock className="w-4 h-4" />
+                            <span>9:00 AM - 12:00 PM</span>
+                          </div>
+                          <div className="flex items-center space-x-1">
+                            <Star className="w-4 h-4" />
+                            <span>Prospective Families</span>
+                          </div>
+                        </div>
+                        <p className="text-blue-700 text-sm mt-2">Tour our campus and meet our teachers</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
 
-      {/* News Section */}
-      <section id="news" className="py-20 relative">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-white/85"></div>
-          <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-bl from-blue-200/30 via-sky-100/25 to-transparent blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 w-1/2 h-2/3 bg-gradient-radial from-blue-300/25 via-sky-200/20 to-transparent blur-2xl"></div>
-          <div className="absolute top-1/3 left-1/4 w-1/3 h-1/3 bg-gradient-radial from-sky-200/30 to-transparent blur-xl"></div>
-        </div>
-        <div className="container mx-auto px-4 relative">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-blue-800 mb-4">Latest News</h2>
-            <p className="text-xl text-blue-600 max-w-3xl mx-auto">
-              Stay updated with the latest happenings, events, and achievements from our Pacific Internacional
-              community.
-            </p>
-          </div>
+            <div>
+              <h3 className="text-2xl font-bold text-blue-800 mb-6">Seasonal Rhythms</h3>
+              <Card className="border-none shadow-lg bg-white/90 backdrop-blur-sm rounded-2xl relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-100/40 to-sky-100/30"></div>
+                <CardContent className="p-8 relative">
+                  <div className="space-y-6">
+                    <div className="text-center mb-6">
+                      <h4 className="text-xl font-bold text-blue-800 mb-2">Spring Season</h4>
+                      <p className="text-blue-600">March - May 2024</p>
+                    </div>
 
-          <div className="grid lg:grid-cols-3 gap-8 mb-12">
-            <Card className="border-none shadow-lg bg-white/90 backdrop-blur-sm rounded-2xl relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-100/30 to-sky-100/25"></div>
-              <CardContent className="p-0 relative">
-                <Image
-                  src="/placeholder.svg?height=200&width=400&text=Spring+Festival+2024"
-                  alt="Spring Festival 2024"
-                  width={400}
-                  height={200}
-                  className="w-full h-48 object-cover rounded-t-2xl"
-                />
-                <div className="p-6">
-                  <div className="text-sm text-blue-600 mb-2">March 15, 2024</div>
-                  <h3 className="text-xl font-bold text-blue-800 mb-3">
-                    Spring Festival Celebrates Renewal and Growth
-                  </h3>
-                  <p className="text-blue-700 mb-4">
-                    Our annual Spring Festival brought together families and students to celebrate the season of renewal
-                    with traditional songs, dances, and artistic displays.
-                  </p>
-                  <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent">
-                    Read More
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
+                    <div className="space-y-4">
+                      <div className="flex items-center space-x-3">
+                        <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                          <Leaf className="w-4 h-4 text-white" />
+                        </div>
+                        <div>
+                          <h5 className="font-semibold text-blue-800">Garden Projects</h5>
+                          <p className="text-sm text-blue-700">Planting and tending our school garden</p>
+                        </div>
+                      </div>
 
-            <Card className="border-none shadow-lg bg-white/90 backdrop-blur-sm rounded-2xl relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-sky-100/30 to-blue-100/25"></div>
-              <CardContent className="p-0 relative">
-                <Image
-                  src="/placeholder.svg?height=200&width=400&text=New+Art+Studio"
-                  alt="New Art Studio Opening"
-                  width={400}
-                  height={200}
-                  className="w-full h-48 object-cover rounded-t-2xl"
-                />
-                <div className="p-6">
-                  <div className="text-sm text-blue-600 mb-2">March 8, 2024</div>
-                  <h3 className="text-xl font-bold text-blue-800 mb-3">New Art Studio Opens for Creative Expression</h3>
-                  <p className="text-blue-700 mb-4">
-                    We're excited to unveil our new dedicated art studio space, designed to inspire creativity and
-                    artistic exploration for students of all ages.
-                  </p>
-                  <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent">
-                    Read More
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
+                      <div className="flex items-center space-x-3">
+                        <div className="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center">
+                          <Star className="w-4 h-4 text-white" />
+                        </div>
+                        <div>
+                          <h5 className="font-semibold text-blue-800">May Day Festival</h5>
+                          <p className="text-sm text-blue-700">Traditional maypole dancing and celebration</p>
+                        </div>
+                      </div>
 
-            <Card className="border-none shadow-lg bg-white/90 backdrop-blur-sm rounded-2xl relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-100/30 to-sky-100/25"></div>
-              <CardContent className="p-0 relative">
-                <Image
-                  src="/placeholder.svg?height=200&width=400&text=Student+Achievement"
-                  alt="Student Achievement Awards"
-                  width={400}
-                  height={200}
-                  className="w-full h-48 object-cover rounded-t-2xl"
-                />
-                <div className="p-6">
-                  <div className="text-sm text-blue-600 mb-2">February 28, 2024</div>
-                  <h3 className="text-xl font-bold text-blue-800 mb-3">Students Excel in National Arts Competition</h3>
-                  <p className="text-blue-700 mb-4">
-                    Congratulations to our talented students who received recognition at the National Youth Arts
-                    Competition for their outstanding creative works.
-                  </p>
-                  <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent">
-                    Read More
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
+                      <div className="flex items-center space-x-3">
+                        <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+                          <Palette className="w-4 h-4 text-white" />
+                        </div>
+                        <div>
+                          <h5 className="font-semibold text-blue-800">Nature Studies</h5>
+                          <p className="text-sm text-blue-700">Outdoor learning and botanical exploration</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
           </div>
 
           <div className="text-center">
-            <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full">
-              View All News
-            </Button>
+            <Link href="/calendar">
+              <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full">
+                View Full Calendar
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -664,23 +520,13 @@ export default function WaldorfSchoolSite() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="#admissions" className="hover:text-white transition-colors">
-                    Admissions
+                  <Link href="#calendar" className="hover:text-white transition-colors">
+                    Calendar
                   </Link>
                 </li>
                 <li>
-                  <Link href="#curriculum" className="hover:text-white transition-colors">
-                    Curriculum
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#community" className="hover:text-white transition-colors">
-                    Community
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#news" className="hover:text-white transition-colors">
-                    News
+                  <Link href="#contact" className="hover:text-white transition-colors">
+                    Contact
                   </Link>
                 </li>
               </ul>
@@ -690,7 +536,7 @@ export default function WaldorfSchoolSite() {
               <h4 className="text-lg font-bold mb-4">Resources</h4>
               <ul className="space-y-2 text-blue-200">
                 <li>
-                  <Link href="#" className="hover:text-white transition-colors">
+                  <Link href="/calendar" className="hover:text-white transition-colors">
                     School Calendar
                   </Link>
                 </li>
