@@ -2,9 +2,26 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Heart, Leaf, Palette, Mail, Phone, MapPin, CalendarIcon, Clock, Users, Star } from 'lucide-react'
+import { Hand, Heart, Mail, Phone, MapPin, CalendarIcon, Clock, Users, Star, Leaf, Palette } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+
+// Custom Child Head Profile Icon
+const ChildHeadIcon = ({ className }: { className?: string }) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    className={className}
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M12 3C8.5 3 6 5.5 6 9c0 2.5 1 4.5 2 5.5c0.5 0.5 0.8 1 0.8 1.5v1.5c0 0.8 0.3 1.5 0.7 2c0.2 0.3 0.3 0.6 0.3 1c0 0.4 0.2 0.8 0.5 1c0.3 0.2 0.7 0.3 1.2 0.3h1c0.5 0 0.9-0.1 1.2-0.3c0.3-0.2 0.5-0.6 0.5-1c0-0.4 0.1-0.7 0.3-1c0.4-0.5 0.7-1.2 0.7-2v-1.5c0-0.5 0.3-1 0.8-1.5c1-1 2-3 2-5.5c0-3.5-2.5-6-6-6z" />
+    <path d="M9.5 8.5c0 0.3 0.2 0.5 0.5 0.5s0.5-0.2 0.5-0.5s-0.2-0.5-0.5-0.5s-0.5 0.2-0.5 0.5z" />
+    <path d="M10.5 11.5c0.5 0.3 1 0.5 1.5 0.5s1-0.2 1.5-0.5" />
+    <path d="M8 6c1-1.5 2.5-2.5 4-2.5" />
+  </svg>
+)
 
 export default function WaldorfSchoolSite() {
   return (
@@ -56,9 +73,6 @@ export default function WaldorfSchoolSite() {
           />
           {/* Dark overlay for text readability */}
           <div className="absolute inset-0 bg-black/40"></div>
-          {/* Watercolor overlay effects */}
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/30 via-sky-500/20 to-blue-700/40"></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-800/10 to-blue-900/30"></div>
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
@@ -70,8 +84,8 @@ export default function WaldorfSchoolSite() {
                   <span className="text-sky-200 block">Nurtures the Soul</span>
                 </h2>
                 <p className="text-xl lg:text-2xl text-blue-100 leading-relaxed max-w-3xl drop-shadow-lg">
-                  At our Waldorf inspired school in Costa Rica, we cultivate imagination, creativity, and love for learning in a
-                  natural and nurturing environment.
+                  At our Waldorf inspired school in Costa Rica, we cultivate imagination, creativity, and love for
+                  learning in a natural and nurturing environment.
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
@@ -110,13 +124,13 @@ export default function WaldorfSchoolSite() {
             <Card className="border-none shadow-lg bg-white/90 backdrop-blur-sm rounded-2xl relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-100/50 to-sky-100/40"></div>
               <CardContent className="p-8 text-center relative">
-                <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Heart className="w-8 h-8 text-white" />
+                <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <ChildHeadIcon className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-blue-800 mb-4">Holistic Education</h3>
+                <h3 className="text-2xl font-bold text-blue-800 mb-4">Head</h3>
                 <p className="text-blue-700">
-                  We develop head, heart, and hands through a holistic approach that respects each child's natural
-                  rhythm.
+                  We develop intellectual capacities through age-appropriate academics that engage thinking and
+                  reasoning skills.
                 </p>
               </CardContent>
             </Card>
@@ -124,12 +138,13 @@ export default function WaldorfSchoolSite() {
             <Card className="border-none shadow-lg bg-white/90 backdrop-blur-sm rounded-2xl relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-sky-100/50 to-blue-100/40"></div>
               <CardContent className="p-8 text-center relative">
-                <div className="w-16 h-16 bg-sky-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Palette className="w-8 h-8 text-white" />
+                <div className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Heart className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-blue-800 mb-4">Arts & Creativity</h3>
+                <h3 className="text-2xl font-bold text-blue-800 mb-4">Heart</h3>
                 <p className="text-blue-700">
-                  Arts are integrated throughout the curriculum, fostering creative expression and imaginative thinking.
+                  We nurture emotional intelligence and artistic expression through beauty, rhythm, and meaningful
+                  relationships.
                 </p>
               </CardContent>
             </Card>
@@ -137,13 +152,13 @@ export default function WaldorfSchoolSite() {
             <Card className="border-none shadow-lg bg-white/90 backdrop-blur-sm rounded-2xl relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-100/50 to-sky-100/40"></div>
               <CardContent className="p-8 text-center relative">
-                <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Leaf className="w-8 h-8 text-white" />
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Hand className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-blue-800 mb-4">Natural Connection</h3>
+                <h3 className="text-2xl font-bold text-blue-800 mb-4">Hands</h3>
                 <p className="text-blue-700">
-                  Our Costa Rican campus offers a unique natural environment where children learn in harmony with
-                  nature.
+                  We engage practical skills through handwork, crafts, and real-world activities that develop dexterity
+                  and will.
                 </p>
               </CardContent>
             </Card>
@@ -398,11 +413,11 @@ export default function WaldorfSchoolSite() {
                   <div>
                     <h3 className="text-lg font-bold text-blue-800 mb-2">Location</h3>
                     <p className="text-blue-700">
-                      Escazú, San José
+                      300m oeste y 50 m norte Eco lodge El Sabanero
                       <br />
-                      Costa Rica
+                      Canafistula, Villareal
                       <br />
-                      In harmony with nature
+                      Santa Cruz, Guanacaste
                     </p>
                   </div>
                 </div>
@@ -414,7 +429,7 @@ export default function WaldorfSchoolSite() {
                   <div>
                     <h3 className="text-lg font-bold text-blue-800 mb-2">Phone</h3>
                     <p className="text-blue-700">
-                      +506 2289-5555
+                      +506 8762 6927
                       <br />
                       Monday to Friday: 7:00 AM - 4:00 PM
                     </p>
@@ -428,9 +443,9 @@ export default function WaldorfSchoolSite() {
                   <div>
                     <h3 className="text-lg font-bold text-blue-800 mb-2">Email</h3>
                     <p className="text-blue-700">
-                      info@waldorfcostarica.edu
+                      info@waldorf.cr
                       <br />
-                      admissions@waldorfcostarica.edu
+                      admissions@waldorf.cr
                     </p>
                   </div>
                 </div>
@@ -527,30 +542,15 @@ export default function WaldorfSchoolSite() {
                     School Calendar
                   </Link>
                 </li>
-                <li>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    Parent Portal
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    Library
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white transition-colors">
-                    Educational Blog
-                  </Link>
-                </li>
               </ul>
             </div>
 
             <div>
               <h4 className="text-lg font-bold mb-4">Contact</h4>
               <ul className="space-y-2 text-blue-200">
-                <li>Escazú, San José</li>
-                <li>+506 2289-5555</li>
-                <li>info@waldorfcostarica.edu</li>
+                <li>Santa Cruz, Guanacaste</li>
+                <li>+506 8762 6927</li>
+                <li>info@waldorf.cr</li>
               </ul>
             </div>
           </div>
