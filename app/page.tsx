@@ -70,24 +70,20 @@ export default function WaldorfSchoolSite() {
                   <span className="text-sky-200 block">Nurtures the Soul</span>
                 </h2>
                 <p className="text-xl lg:text-2xl text-blue-100 leading-relaxed max-w-3xl drop-shadow-lg">
-                  At our Waldorf school in Costa Rica, we cultivate imagination, creativity, and love for learning in a
+                  At our Waldorf inspired school in Costa Rica, we cultivate imagination, creativity, and love for learning in a
                   natural and nurturing environment.
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button
-                  size="lg"
-                  className="bg-white/90 hover:bg-white text-blue-800 px-8 py-4 rounded-full text-lg font-semibold shadow-xl hover:shadow-2xl transition-all"
-                >
-                  Learn More
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-2 border-white/80 text-white hover:bg-white/10 px-8 py-4 rounded-full bg-transparent backdrop-blur-sm text-lg font-semibold shadow-xl hover:shadow-2xl transition-all"
-                >
-                  Schedule a Visit
-                </Button>
+                <Link href="/application">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="border-2 border-white/80 text-white hover:bg-white/10 px-8 py-4 rounded-full bg-transparent backdrop-blur-sm text-lg font-semibold shadow-xl hover:shadow-2xl transition-all"
+                  >
+                    Schedule a Visit or Call
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
