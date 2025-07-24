@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { ChevronLeft, ChevronRight, Clock, Star, ArrowLeft, Leaf, Palette } from "lucide-react"
+import { ChevronLeft, ChevronRight, Clock, Star, ArrowLeft, Leaf, Palette } from 'lucide-react'
 import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
@@ -176,33 +176,24 @@ export default function CalendarPage() {
       </div>
 
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
+      <header className="sticky top-0 z-50 bg-blue-800 border-b border-blue-700">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <Image
-                src="/images/pacific-logo-new.png"
-                alt="Pacific Internacional - Waldorf Inspired Education"
-                width={60}
-                height={60}
-                className="rounded-full"
-              />
-              <div>
-                <h1 className="text-xl font-bold text-blue-800">Pacific Internacional</h1>
-                <p className="text-sm text-blue-600">Waldorf Inspired Education</p>
-              </div>
+            <div>
+              <h1 className="text-xl font-bold text-white">logo here</h1>
+              <p className="text-sm text-blue-200">Waldorf Inspired Education</p>
             </div>
             <nav className="hidden md:flex space-x-8">
-              <Link href="/#about" className="text-blue-700 hover:text-blue-600 transition-colors font-medium">
+              <Link href="/#about" className="text-blue-200 hover:text-white transition-colors font-medium">
                 About
               </Link>
               <Link
                 href="/calendar"
-                className="text-blue-700 hover:text-blue-600 transition-colors font-medium border-b-2 border-blue-600"
+                className="text-blue-200 hover:text-white transition-colors font-medium border-b-2 border-blue-600"
               >
                 Calendar
               </Link>
-              <Link href="/#contact" className="text-blue-700 hover:text-blue-600 transition-colors font-medium">
+              <Link href="/#contact" className="text-blue-200 hover:text-white transition-colors font-medium">
                 Contact
               </Link>
             </nav>
